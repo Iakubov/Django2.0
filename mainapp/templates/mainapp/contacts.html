@@ -1,28 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <title>{{ page_title|title }}</title>
-    <link rel="stylesheet" href="/static/css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,300,400,700" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/9d8cbc5593.js"></script>
-</head>
-
-<body>
-    <div class="container">
+{% extends 'mainapp/base.html' %}
+{% block container %}
         <div class="header_product padding-site">
-            <div class="product-header-menu">
-                <a href="/"><img src="/static/img/logo.svg" alt="logo"></a>
-                <ul class="menu">
-                    <li class="menu_list"><a href="/" class="menu_link menu_link_active">HOME</a></li>
-                    <li class="menu_list"><a href="/product" class="menu_link">PRODUCTS</a></li>
-                    <li class="menu_list"><a href="#" class="menu_link">HISTORY</a></li>
-                    <li class="menu_list"><a href="#" class="menu_link">SHOWROOM</a></li>
-                    <li class="menu_list"><a href="/contacts" class="menu_link">CONTACT</a></li>
-                    <li class="menu_list"><a href="#" class="menu_link"><img src="/static/img/search.svg" alt="search"></a></li>
-                </ul>
-            </div>
+            {% include 'mainapp/includes/inc_menu.html' %}
             <h2 class="h2-product">Contact Us</h2>
         </div>
         <div class="contacts-box padding-site">
@@ -57,46 +36,4 @@
                 <p class="contacts-text-adress">12 W 1st St, 90001 Los Angeles, California</p>
             </div>
         </div>
-        <div class="footer padding-site">
-            <div class="footer-topics">
-                <div class="topic1">
-                    <h3 class="footer-h3">Contact us</h3>
-                    <p class="text-footer">132A Bridge Road Richmond VIC Australia.<br><br> Talk to us on 1300 132<br> info@interior.com</p>
-                </div>
-                <div class="topic2">
-                    <h3 class="footer-h3">Useful information</h3>
-                    <div class="footer-topic2-container">
-                        <div class="footer-topic2-1">
-                            <a href="#" class="usefull-info-a">Sales terms</a>
-                            <a href="#" class="usefull-info-a">Customer care</a>
-                            <a href="#" class="usefull-info-a">Delivery</a>
-                        </div>
-                        <div class="footer-topic2-2">
-                            <a href="#" class="usefull-info-a">Architect accounts</a>
-                            <a href="#" class="usefull-info-a">Careers</a>
-                            <a href="#" class="usefull-info-a">Exchanges &amp; returns</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="topic3">
-                    <h3 class="footer-h3">Let's stay in touch!</h3>
-                    <p class="text-footer">Suscribe to know about our latest news, products and special offers just for suscribers.</p>
-                    <input type="email" class="email-input" placeholder="your email address">
-
-                </div>
-            </div>
-            <div class="copyright">
-                <p class="copyright-text">&#169; Copyright - INTERIOR 2016. All Rights Reserved.</p>
-                <div class="footer-social">
-                    <i class="fab fa-google fa-2x"></i>
-                    <i class="fab fa-facebook fa-2x"></i>
-                    <i class="fab fa-pinterest fa-2x"></i>
-                    <i class="fab fa-telegram fa-2x"></i>
-                </div>
-                <p class="copyright-text">Terms &amp; Conditions / Privacy policy &amp; Cookies</p>
-            </div>
-        </div>
-    </div>
-</body>
-
-</html>
+{% endblock %}
