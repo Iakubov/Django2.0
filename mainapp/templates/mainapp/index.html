@@ -1,4 +1,5 @@
 {% extends 'mainapp/base.html' %}
+{% load static %}
         {% block container %}
         <div class="slider padding-site">
             {% include 'mainapp/includes/inc_menu.html' %}
@@ -24,30 +25,30 @@
                 <a class="expoler_button" href="#">Explore all</a>
             </div>
             <div class="products_img">
-                <div class="product" style="background-image: url(/static/img/product-1.jpg)">
+                <div class="product" style="background-image: url({% static 'img/product-1.jpg' %})">
                     <div class="product_content">
-                        <a href="#" class="product_button"><img src="/static/img/arrow.svg" alt=">"></a>
+                        <a href="#" class="product_button"><img src="{% static 'img/arrow.svg' %}" alt=">"></a>
                         <h3 class="product_h3">Fishnet Chair</h3>
                         <p class="product_p">Seat and back with upholstery made of cold cure foam</p>
                     </div>
                 </div>
-                <div class="product" style="background-image: url(/static/img/product-2.jpg)">
+                <div class="product" style="background-image: url({% static 'img/product-2.jpg' %})">
                     <div class="product_content">
-                        <a href="#" class="product_button"><img src="/static/img/arrow.svg" alt=">"></a>
+                        <a href="#" class="product_button"><img src="{% static 'img/arrow.svg' %}" alt=">"></a>
                         <h3 class="product_h3">Fishnet Chair</h3>
                         <p class="product_p">Seat and back with upholstery made of cold cure foam</p>
                     </div>
                 </div>
-                <div class="product" style="background-image: url(/static/img/product-3.jpg)">
+                <div class="product" style="background-image: url({% static 'img/product-3.jpg' %})">
                     <div class="product_content">
-                        <a href="#" class="product_button"><img src="/static/img/arrow.svg" alt=">"></a>
+                        <a href="#" class="product_button"><img src="{% static 'img/arrow.svg' %}" alt=">"></a>
                         <h3 class="product_h3">Fishnet Chair</h3>
                         <p class="product_p">Seat and back with upholstery made of cold cure foam</p>
                     </div>
                 </div>
-                <div class="product" style="background-image: url(/static/img/product-4.jpg)">
+                <div class="product" style="background-image: url({% static 'img/product-4.jpg' %})">
                     <div class="product_content">
-                        <a href="#" class="product_button"><img src="/static/img/arrow.svg" alt=">"></a>
+                        <a href="#" class="product_button"><img src="{% static 'img/arrow.svg' %}" alt=">"></a>
                         <h3 class="product_h3">Fishnet Chair</h3>
                         <p class="product_p">Seat and back with upholstery made of cold cure foam</p>
                     </div>
@@ -80,12 +81,12 @@
                 <a class="expoler_button_trending" href="#">Explore all</a>
             </div>
             <div class="trending_products_box">
-                <a href="#"><img class="trending_product_shadow" src="/static/img/product-11.jpg" alt="trending_product"></a>
-                <a href="#"><img class="trending_product_shadow" src="/static/img/product-21.jpg" alt="trending_product"></a>
-                <a href="#"><img class="trending_product_shadow" src="/static/img/product-31.jpg" alt="trending_product"></a>
-                <a href="#"><img class="trending_product_shadow" src="/static/img/product-41.jpg" alt="trending_product"></a>
-                <a href="#"><img class="trending_product_shadow" src="/static/img/product-5.jpg" alt="trending_product"></a>
-                <a href="#"><img class="trending_product_shadow" src="/static/img/product-6.jpg" alt="trending_product"></a>
+                <a href="#"><img class="trending_product_shadow" src="{% static 'img/product-11.jpg' %}" alt="trending_product"></a>
+                <a href="#"><img class="trending_product_shadow" src="{% static 'img/product-21.jpg' %}" alt="trending_product"></a>
+                <a href="#"><img class="trending_product_shadow" src="{% static 'img/product-31.jpg' %}" alt="trending_product"></a>
+                <a href="#"><img class="trending_product_shadow" src="{% static 'img/product-41.jpg' %}" alt="trending_product"></a>
+                <a href="#"><img class="trending_product_shadow" src="{% static 'img/product-5.jpg' %}" alt="trending_product"></a>
+                <a href="#"><img class="trending_product_shadow" src="{% static 'img/product-6.jpg' %}" alt="trending_product"></a>
             </div>
         </div>
         <div class="slider_2 padding-site">
@@ -102,7 +103,7 @@
             </div>
         </div>
         <div class="exclusive-product-box padding-site">
-            <div class="exclusive_product_lg" style="background-image: url(/static/img/product-1-lg.jpg)">
+            <div class="exclusive_product_lg" style="background-image: url({% static 'img/product-1-lg.jpg' %})">
                 <div class="exclusive_product_lg_content">
                     <p class="exclusive">Exclusive</p>
                     <h3 class="promo_h3">Fishnet Chair</h3>
@@ -111,10 +112,10 @@
                 </div>
             </div>
             <div class="exlucive-product-box-sm">
-                <div class="exclusive_product_sm" style="background-image: url(/static/img/product-2-sm.jpg)"></div>
-                <div class="exclusive_product_sm" style="background-image: url(/static/img/product-3-sm.jpg)"></div>
-                <div class="exclusive_product_sm" style="background-image: url(/static/img/product-4-sm.jpg)"></div>
-                <div class="exclusive_product_sm" style="background-image: url(/static/img/product-5-sm.jpg)"></div>
+                <div class="exclusive_product_sm" style="background-image: url({% static 'img/product-2-sm.jpg' %})"></div>
+                <div class="exclusive_product_sm" style="background-image: url({% static 'img/product-3-sm.jpg' %})"></div>
+                <div class="exclusive_product_sm" style="background-image: url({% static 'img/product-4-sm.jpg' %})"></div>
+                <div class="exclusive_product_sm" style="background-image: url({% static 'img/product-5-sm.jpg' %})"></div>
             </div>
         </div>
         <div class="mobile padding-site">
@@ -122,8 +123,8 @@
                 <p class="mobile_app">Mobile app</p>
                 <h3 class="mobile_h3">Find. Follow. Favorite.</h3>
                 <p class="mobile_text_2">Save your favorites and share your style.</p>
-                <a href="#"><img src="/static/img/app-store.png" alt="appstore"></a>
-                <a href="#" class="googleplay"><img src="/static/img/google-play.png" alt="google-play"></a>
+                <a href="#"><img src="{% static 'img/app-store.png' %}" alt="appstore"></a>
+                <a href="#" class="googleplay"><img src="{% static 'img/google-play.png' %}" alt="google-play"></a>
             </div>
         </div>
         {% endblock %}

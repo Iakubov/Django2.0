@@ -1,4 +1,5 @@
 {% extends 'mainapp/base.html' %}
+{% load static %}
 {% block container %}
         <div class="header_product padding-site">
             {% include 'mainapp/includes/inc_menu.html' %}
@@ -14,18 +15,18 @@
                 <a href="#" class="products-range-menu">Classic</a>
             </div>
             <div class="products-range-box">
-                <a href="#"><img class="trending_product_shadow" src="/static/img/product-11.jpg" alt="trending_product"></a>
-                <a href="#"><img class="trending_product_shadow" src="/static/img/product-21.jpg" alt="trending_product"></a>
-                <a href="#"><img class="trending_product_shadow" src="/static/img/product-31.jpg" alt="trending_product"></a>
-                <a href="#"><img class="trending_product_shadow" src="/static/img/product-41.jpg" alt="trending_product"></a>
-                <a href="#"><img class="trending_product_shadow" src="/static/img/product-5.jpg" alt="trending_product"></a>
-                <a href="#"><img class="trending_product_shadow" src="/static/img/product-6.jpg" alt="trending_product"></a>
-                <a href="#"><img class="trending_product_shadow" src="/static/img/product-11.jpg" alt="trending_product"></a>
-                <a href="#"><img class="trending_product_shadow" src="/static/img/product-21.jpg" alt="trending_product"></a>
-                <a href="#"><img class="trending_product_shadow" src="/static/img/product-31.jpg" alt="trending_product"></a>
-                <a href="#"><img class="trending_product_shadow" src="/static/img/product-41.jpg" alt="trending_product"></a>
-                <a href="#"><img class="trending_product_shadow" src="/static/img/product-5.jpg" alt="trending_product"></a>
-                <a href="#"><img class="trending_product_shadow" src="/static/img/product-6.jpg" alt="trending_product"></a>
+                <a href="#"><img class="trending_product_shadow" src="{% static 'img/product-11.jpg' %}" alt="trending_product"></a>
+                <a href="#"><img class="trending_product_shadow" src="{% static 'img/product-21.jpg' %}" alt="trending_product"></a>
+                <a href="#"><img class="trending_product_shadow" src="{% static 'img/product-31.jpg' %}" alt="trending_product"></a>
+                <a href="#"><img class="trending_product_shadow" src="{% static 'img/product-41.jpg' %}" alt="trending_product"></a>
+                <a href="#"><img class="trending_product_shadow" src="{% static 'img/product-5.jpg' %}" alt="trending_product"></a>
+                <a href="#"><img class="trending_product_shadow" src="{% static 'img/product-6.jpg' %}" alt="trending_product"></a>
+                <a href="#"><img class="trending_product_shadow" src="{% static 'img/product-11.jpg' %}" alt="trending_product"></a>
+                <a href="#"><img class="trending_product_shadow" src="{% static 'img/product-21.jpg' %}" alt="trending_product"></a>
+                <a href="#"><img class="trending_product_shadow" src="{% static 'img/product-31.jpg' %}" alt="trending_product"></a>
+                <a href="#"><img class="trending_product_shadow" src="{% static 'img/product-41.jpg' %}" alt="trending_product"></a>
+                <a href="#"><img class="trending_product_shadow" src="{% static 'img/product-5.jpg' %}" alt="trending_product"></a>
+                <a href="#"><img class="trending_product_shadow" src="{% static 'img/product-6.jpg' %}" alt="trending_product"></a>
             </div>
             <span class="icon-spinner9" style="display: inline-block; text-align: center; padding-top: 71px; padding-bottom: 120px;" ;></span>
         </div>
