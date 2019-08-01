@@ -1,12 +1,15 @@
 from django.shortcuts import render
 import json
+from mainapp.models import Product
 
 # Create your views here.
 
 
 def main(request):
+    products = Product.objects.all()
     context = {
         'page_title': 'Shop',
+        'products': products,
     }
     return render(request, 'mainapp/index.html', context)
 
