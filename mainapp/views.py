@@ -22,7 +22,7 @@ def product(request):
 
 
 def contacts(request):
-    with open("geekshop/content.json", "r") as file:
+    with open("mainapp/json/content.json", "r") as file:
         content = json.load(file)
 
     context = {
