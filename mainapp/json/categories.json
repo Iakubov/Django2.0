@@ -1,0 +1,34 @@
+[
+    {
+        "name": "all",
+        "description": "all categories"
+    },
+    {
+        "name": "classic",
+        "description": "classic tables"
+    },
+    {
+        "name": "furniture",
+        "description": "regular furniture"
+    },
+    {
+        "name": "home",
+        "description": "home furniture"
+    },
+    {
+        "name": "modern",
+        "description": "modern style furniture"
+    },
+    {
+        "name": "office",
+        "description": "office furniture"
+    },
+    {
+        "name": "chairs",
+        "description": "your regular chairs"
+    },
+    {
+        "name": "tables",
+        "description": "your regular tables"
+    }
+]

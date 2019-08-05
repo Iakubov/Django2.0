@@ -1,0 +1,128 @@
+[
+    {
+        "category": "classic",
+        "name": "classic chair 1",
+        "image": "product_images/product-1.jpg",
+        "shortdesc": "short description",
+        "description": "full description",
+        "price": "5000.50",
+        "quantity": "1"
+    },
+    {
+        "category": "classic",
+        "name": "classic chair 2",
+        "image": "product_images/product-2.jpg",
+        "shortdesc": "short description",
+        "description": "full description",
+        "price": "6000.50",
+        "quantity": "2"
+    },
+    {
+        "category": "furniture",
+        "name": "furniture 1",
+        "image": "product_images/product-3.jpg",
+        "shortdesc": "short description",
+        "description": "full description",
+        "price": "7000.50",
+        "quantity": "3"
+    },
+    {
+        "category": "furniture",
+        "name": "furniture 2",
+        "image": "product_images/product-4.jpg",
+        "shortdesc": "short description",
+        "description": "full description",
+        "price": "8000.50",
+        "quantity": "4"
+    },
+    {
+        "category": "home",
+        "name": "home chair 1",
+        "image": "product_images/product-5.jpg",
+        "shortdesc": "short description",
+        "description": "full description",
+        "price": "9000.50",
+        "quantity": "5"
+    },
+    {
+        "category": "home",
+        "name": "home chair 2",
+        "image": "product_images/product-6.jpg",
+        "shortdesc": "short description",
+        "description": "full description",
+        "price": "10000.50",
+        "quantity": "6"
+    },
+    {
+        "category": "modern",
+        "name": "modern table 1",
+        "image": "product_images/product-7.jpg",
+        "shortdesc": "short description",
+        "description": "full description",
+        "price": "11000.50",
+        "quantity": "7"
+    },
+    {
+        "category": "modern",
+        "name": "modern table 2",
+        "image": "product_images/product-8.jpg",
+        "shortdesc": "short description",
+        "description": "full description",
+        "price": "12000.50",
+        "quantity": "8"
+    },
+    {
+        "category": "office",
+        "name": "office chair 1",
+        "image": "product_images/product-9.jpg",
+        "shortdesc": "short description",
+        "description": "full description",
+        "price": "13000.50",
+        "quantity": "9"
+    },
+    {
+        "category": "office",
+        "name": "office chair 2",
+        "image": "product_images/product-10.jpg",
+        "shortdesc": "short description",
+        "description": "full description",
+        "price": "14000.50",
+        "quantity": "10"
+    },
+    {
+        "category": "chairs",
+        "name": "regular chair 1",
+        "image": "product_images/product-11.jpg",
+        "shortdesc": "short description",
+        "description": "full description",
+        "price": "15000.50",
+        "quantity": "11"
+    },
+    {
+        "category": "chairs",
+        "name": "regular chair 2",
+        "image": "product_images/product-12.jpg",
+        "shortdesc": "short description",
+        "description": "full description",
+        "price": "16000.50",
+        "quantity": "12"
+    },
+    {
+        "category": "tables",
+        "name": "regular table 1",
+        "image": "product_images/product-13.jpg",
+        "shortdesc": "short description",
+        "description": "full description",
+        "price": "17000.50",
+        "quantity": "13"
+    },
+    {
+        "category": "tables",
+        "name": "regular table 2",
+        "image": "product_images/product-14.jpg",
+        "shortdesc": "short description",
+        "description": "full description",
+        "price": "18000.50",
+        "quantity": "14"
+    }
+]
