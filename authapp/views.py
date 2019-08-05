@@ -1,8 +1,9 @@
 from django.contrib import auth
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
+from django.urls import reverse
 
-from authapp.forms import ShopUserLoginForm
+from authapp.forms import ShopUserLoginForm, ShopUserRegisterForm
 
 
 def login(request):
@@ -27,3 +28,20 @@ def login(request):
 def logout(request):
     auth.logout(request)
     return HttpResponseRedirect('/')
+
+
+def register(request):
+    if request.method == 'POST':
+        form = ShopUserRegisterForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('auth:login'))
+    else:
+        form = ShopUserRegisterForm()
+
+    content = {
+        'title': 'Sign up',
+        'form': form
+    }
+
+    return render(request, 'authapp/register.html', content)
