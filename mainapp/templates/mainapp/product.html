@@ -1,51 +1,55 @@
 {% extends 'mainapp/base.html' %}
 {% load static %}
-{% block container %}
+    {% block container %}
         <div class="header_product padding-site">
             {% include 'mainapp/includes/inc_menu.html' %}
-            <h2 class="h2-product">Our Products Range</h2>
+            <h2 class="h2-product">Products</h2>
         </div>
-        <div class="products-range padding-site">
-            <div class="products-range-header">
-                <a href="" class="products-range-menu products-range-menu-active">All</a>
-                <a href="#" class="products-range-menu">Home</a>
-                <a href="#" class="products-range-menu">Office</a>
-                <a href="#" class="products-range-menu">Furniture</a>
-                <a href="#" class="products-range-menu">Modern</a>
-                <a href="#" class="products-range-menu">Classic</a>
-            </div>
-            <div class="products-range-box">
-                <a href="#"><img class="trending_product_shadow" src="{% static 'img/product-11.jpg' %}" alt="trending_product"></a>
-                <a href="#"><img class="trending_product_shadow" src="{% static 'img/product-21.jpg' %}" alt="trending_product"></a>
-                <a href="#"><img class="trending_product_shadow" src="{% static 'img/product-31.jpg' %}" alt="trending_product"></a>
-                <a href="#"><img class="trending_product_shadow" src="{% static 'img/product-41.jpg' %}" alt="trending_product"></a>
-                <a href="#"><img class="trending_product_shadow" src="{% static 'img/product-5.jpg' %}" alt="trending_product"></a>
-                <a href="#"><img class="trending_product_shadow" src="{% static 'img/product-6.jpg' %}" alt="trending_product"></a>
-                <a href="#"><img class="trending_product_shadow" src="{% static 'img/product-11.jpg' %}" alt="trending_product"></a>
-                <a href="#"><img class="trending_product_shadow" src="{% static 'img/product-21.jpg' %}" alt="trending_product"></a>
-                <a href="#"><img class="trending_product_shadow" src="{% static 'img/product-31.jpg' %}" alt="trending_product"></a>
-                <a href="#"><img class="trending_product_shadow" src="{% static 'img/product-41.jpg' %}" alt="trending_product"></a>
-                <a href="#"><img class="trending_product_shadow" src="{% static 'img/product-5.jpg' %}" alt="trending_product"></a>
-                <a href="#"><img class="trending_product_shadow" src="{% static 'img/product-6.jpg' %}" alt="trending_product"></a>
-            </div>
-            <span class="icon-spinner9" style="display: inline-block; text-align: center; padding-top: 71px; padding-bottom: 120px;" ;></span>
+        <div class="products-range-header">
+            {% include 'mainapp/includes/inc_products_menu.html' %}
         </div>
-        <div class="promo_products">
-            <div class="promo1">
-                <div class="promo_text_box">
-                    <p class="exclusive">Exclusive</p>
-                    <h3 class="promo_h3">Fishnet Chair</h3>
-                    <p class="promo_text">Seat and back with upholstery made of cold cure foam. Steel frame, available in matt</p>
-                    <a href="#" class="order_button">Order Us</a>
+        <div class="details-products">
+            <div class="details-slider">
+                <div class="slider-product">
+                    <img src="{% static 'img/slider1.jpg' %}" alt="">
+                </div>
+                <div class="slider-control">
+                    <div class="block">
+                        <a href="#"><img src="/static/img/controll.jpg" alt=""><div class="text"></div></a>
+                    </div>
+                    <div class="block">
+                        <a href="#"><img src="/static/img/controll1.jpg" alt="">
+                            <div class="text"></div>
+                        </a>
+                    </div>
+                    <div class="block">
+                        <a href="#"><img src="/static/img/controll2.jpg" alt="">
+                            <div class="text"></div>
+                        </a>
+                    </div>
                 </div>
             </div>
-            <div class="promo2">
-                <div class="promo_text_box">
-                    <p class="exclusive">Exclusive</p>
-                    <h3 class="promo_h3">Fishnet Chair</h3>
-                    <p class="promo_text">Seat and back with upholstery made of cold cure foam. Steel frame, available in matt</p>
-                    <a href="#" class="order_button">Order Us</a>
+
+            <div class="description">
+                <h3 class="big-bold">Отличный стул</h3>
+                <h3 class="red">горячее предложение</h3>
+                <p class="price"> 2585.9 <span>руб</span></p>
+                <a href="#" class="red-button">
+                    заказать <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                </a>
+                <div class="description-text">
+                    <p>Расположитесь комфортно.</p>
+                    <p>Отличное качество материалов
+                        позволит вам это.</p>
+                    <p>Различные цвета</p>
+                    <p>высочайший уровень
+                        эргономики и прочность.</p>
                 </div>
             </div>
         </div>
-{% endblock %}
+    {% endblock %}
+
+    </div>
+</body>
+
+</html>

@@ -1,9 +1,5 @@
 [
     {
-        "name": "all",
-        "description": "all categories"
-    },
-    {
         "name": "classic",
         "description": "classic tables"
     },
@@ -22,13 +18,5 @@
     {
         "name": "office",
         "description": "office furniture"
-    },
-    {
-        "name": "chairs",
-        "description": "your regular chairs"
-    },
-    {
-        "name": "tables",
-        "description": "your regular tables"
     }
 ]

@@ -88,41 +88,5 @@
         "description": "full description",
         "price": "14000.50",
         "quantity": "10"
-    },
-    {
-        "category": "chairs",
-        "name": "regular chair 1",
-        "image": "product_images/product-11.jpg",
-        "shortdesc": "short description",
-        "description": "full description",
-        "price": "15000.50",
-        "quantity": "11"
-    },
-    {
-        "category": "chairs",
-        "name": "regular chair 2",
-        "image": "product_images/product-12.jpg",
-        "shortdesc": "short description",
-        "description": "full description",
-        "price": "16000.50",
-        "quantity": "12"
-    },
-    {
-        "category": "tables",
-        "name": "regular table 1",
-        "image": "product_images/product-13.jpg",
-        "shortdesc": "short description",
-        "description": "full description",
-        "price": "17000.50",
-        "quantity": "13"
-    },
-    {
-        "category": "tables",
-        "name": "regular table 2",
-        "image": "product_images/product-14.jpg",
-        "shortdesc": "short description",
-        "description": "full description",
-        "price": "18000.50",
-        "quantity": "14"
     }
 ]

@@ -1,0 +1,42 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+{% block container %}
+        <div class="header_product padding-site">
+            {% include 'mainapp/includes/inc_menu.html' %}
+            <h2 class="h2-product">Our Products Range</h2>
+        </div>
+        <div class="products-range padding-site">
+            <div class="products-range-header">
+                {% include 'mainapp/includes/inc_products_menu.html' %}
+            </div>
+            <div class="products-range-box">
+                {% for product in category_products %}
+                <div class="product" style="background-image:url(/media/{{ product.image }} )">
+                    <div class="product_content">
+                        <a href="#" class="product_button"><img src="{% static 'img/arrow.svg' %}" alt=">"></a>
+                        <h3 class="product_h3">{{ product.name }}</h3>
+                        <p class="product_p">{{ product.shortdesc }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="promo_products">
+            <div class="promo1">
+                <div class="promo_text_box">
+                    <p class="exclusive">Exclusive</p>
+                    <h3 class="promo_h3">Fishnet Chair</h3>
+                    <p class="promo_text">Seat and back with upholstery made of cold cure foam. Steel frame, available in matt</p>
+                    <a href="#" class="order_button">Order Us</a>
+                </div>
+            </div>
+            <div class="promo2">
+                <div class="promo_text_box">
+                    <p class="exclusive">Exclusive</p>
+                    <h3 class="promo_h3">Fishnet Chair</h3>
+                    <p class="promo_text">Seat and back with upholstery made of cold cure foam. Steel frame, available in matt</p>
+                    <a href="#" class="order_button">Order Us</a>
+                </div>
+            </div>
+        </div>
+{% endblock %}
