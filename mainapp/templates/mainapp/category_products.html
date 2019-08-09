@@ -3,7 +3,7 @@
 {% block container %}
         <div class="header_product padding-site">
             {% include 'mainapp/includes/inc_menu.html' %}
-            <h2 class="h2-product">Our Products Range</h2>
+            <h2 class="h2-product">{{ category.name|title }} products</h2>
         </div>
         <div class="products-range padding-site">
             <div class="products-range-header">
@@ -13,7 +13,7 @@
                 {% for product in category_products %}
                 <div class="product" style="background-image:url(/media/{{ product.image }} )">
                     <div class="product_content">
-                        <a href="#" class="product_button"><img src="{% static 'img/arrow.svg' %}" alt=">"></a>
+                        <a href="{% url 'basket:add' product.pk %}" class="product_button"><img src="{% static 'img/arrow.svg' %}" alt=">"></a>
                         <h3 class="product_h3">{{ product.name }}</h3>
                         <p class="product_p">{{ product.shortdesc }}</p>
                     </div>
