@@ -2,7 +2,7 @@
 
 <ul class="menu">
     <li class="menu_list">
-        <a href="{% url 'main:category' 0 %}" class="products-range-menu products-range-menu-active">All</a></li>
+        <a href="{% url 'main:category' 0 %}" class="products-range-menu {% if request.resolver_match.kwargs.pk == '0' %}products-range-menu-active{% endif %}">All</a></li>
     {% for category in products_menu  %}
     <li class="menu_list">
         <a href="{% url 'main:category' category.pk %}" class="products-range-menu">

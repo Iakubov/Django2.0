@@ -2,12 +2,15 @@
 <div class="product-header-menu">
                 <a href="{% url 'main:index'%}"><img src="{% static '/img/logo.svg' %}" alt="logo"></a>
                 <ul class="menu">
-                    <li class="menu_list"><a href="{% url 'main:index' %}" class="menu_link menu_link_active">HOME</a></li>
-                    <li class="menu_list"><a href="{% url 'main:products' %}" class="menu_link">PRODUCTS</a></li>
-                    <li class="menu_list"><a href="{% url 'main:contacts' %}" class="menu_link">CONTACT</a></li>
+                    <li class="menu_list">
+                        <a href="{% url 'main:index' %}"
+                           class="menu_link {% if request.resolver_match.url_name == 'index' %} menu_link_active {% endif %}">HOME</a>
+                    </li>
+                    <li class="menu_list"><a href="{% url 'main:products' %}" class="menu_link {% if request.resolver_match.url_name == 'products' or request.resolver_match.url_name == 'category' %} menu_link_active {% endif %}">PRODUCTS</a></li>
+                    <li class="menu_list"><a href="{% url 'main:contacts' %}" class="menu_link {% if request.resolver_match.url_name == 'contacts' %} menu_link_active {% endif %}">CONTACT</a></li>
                     <li class="menu_list">
                     {% if user.is_authenticated %}
-                        <a href="{#% url 'authapp:update' %#}" class="menu_link">
+                        <a href="{% url 'auth:update' %}" class="menu_link">
                         {{ user.first_name|default:'User' }}
                         </a>
                     {% endif %}

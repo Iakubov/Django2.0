@@ -32,6 +32,7 @@ body {
     font-weight: 300;
     text-transform: uppercase;
     padding: 10px 13px;
+
 }
 
 .menu_list {
@@ -612,8 +613,9 @@ body {
 
 .products-range-menu-active {
     color: #212121;
-    /*noinspection CssFloatPxLength*/
     letter-spacing: 1.8px;
+    font-weight: 700;
+    border-bottom: 3px solid #212121;
 }
 
 .products-range-header {
@@ -629,7 +631,7 @@ body {
 .products-range {
     display: flex;
     flex-direction: column;
-    height: 1965px;
+    height: 1000px;
 }
 
 .products-range-box {

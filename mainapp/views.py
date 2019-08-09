@@ -8,7 +8,7 @@ def get_products_menu():
 
 
 def main(request):
-    products = Product.objects.all()
+    products = Product.objects.all()[:4]
     context = {
         'page_title': 'Shop',
         'products': products,

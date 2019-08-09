@@ -45,6 +45,17 @@
                     <p>высочайший уровень
                         эргономики и прочность.</p>
                 </div>
+                <div class="products_img">
+                {% for product in products %}
+                <div class="product" style="background-image:url(/media/{{ product.image }} )">
+                    <div class="product_content">
+                        <a href="#" class="product_button"><img src="{% static 'img/arrow.svg' %}" alt=">"></a>
+                        <h3 class="product_h3">{{ product.name }}</h3>
+                        <p class="product_p">{{ product.description }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+                </div>
             </div>
         </div>
     {% endblock %}
