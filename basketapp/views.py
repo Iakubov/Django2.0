@@ -4,10 +4,16 @@ from django.shortcuts import render, get_object_or_404
 
 from basketapp.models import Basket
 from mainapp.models import Product
+from mainapp.views import get_basket
 
 
-def index():
-    pass
+@login_required
+def index(request):
+    context = {
+        'page_title': 'Basket',
+        'basket': get_basket(request),
+    }
+    return render(request, 'basketapp/index.html', context)
 
 @login_required
 def basket_add(request, pk):
