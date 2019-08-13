@@ -23,7 +23,8 @@
                     <li class="menu_list"><a href="#" class="menu_link"><img src="/static/img/search.svg" alt="search"></a></li>
                     <li class="menu_list"><a href="#" class="menu_link"><img src="/static/img/basket.png" alt="search"></a></li>
                     {% if basket %}
-                        {{ basket|length }}
+                        {{ basket.0.total_quantity }} шт.
+                        {{ basket.0.total_cost|floatformat:0 }} руб.
                     {% endif %}
                 </ul>
 </div>
