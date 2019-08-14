@@ -25,17 +25,17 @@
                 <a class="expoler_button" href="#">Explore all</a>
             </div>
             <div class="products_img">
-                {% for product in products %}
-                <div class="product" style="background-image:url(/media/{{ product.image }} )">
+                {% for product in featured_products %}
+                <div class="product" style="background-image:url('/media/{{ product.image }}')">
                     <div class="product_content">
                         <a href="#" class="product_button"><img src="{% static 'img/arrow.svg' %}" alt=">"></a>
-                        <h3 class="product_h3">{{ product.name }}</h3>
-                        <p class="product_p">{{ product.description }}</p>
+                        <h3 class="product_h3">{{ featured_products.name }}</h3>
+                        <p class="product_p">{{ featured_products.description }}</p>
                     </div>
                 </div>
                 {% endfor %}
-                </div>
             </div>
+        </div>
 
 
         </div>

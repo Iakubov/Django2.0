@@ -1,3 +1,5 @@
+import random
+
 from django.shortcuts import render, get_object_or_404
 import json
 
@@ -9,6 +11,14 @@ def get_products_menu():
     return ProductCategory.objects.all()
 
 
+def get_hot_product():
+    return random.choice(Product.objects.all())
+
+
+def same_products(hot_product):
+    return hot_product.category.product_set.exclude(pk=hot_product.pk)
+
+
 def get_basket(request):
     if request.user.is_authenticated:
         return request.user.basket.all()
@@ -17,20 +27,23 @@ def get_basket(request):
 
 
 def main(request):
-    products = Product.objects.all()[:4]
+    featured_products = Product.objects.all()[:4]
     context = {
         'page_title': 'Shop',
-        'products': products,
+        'featured_products': featured_products,
         'basket': get_basket(request),
     }
     return render(request, 'mainapp/index.html', context)
 
 
 def product(request):
+    hot_product = get_hot_product()
     context = {
         'page_title': 'Products',
         'products_menu': get_products_menu(),
         'basket': get_basket(request),
+        'hot_product': hot_product,
+        'same_products': same_products(hot_product),
     }
     return render(request, 'mainapp/product.html', context)
 
