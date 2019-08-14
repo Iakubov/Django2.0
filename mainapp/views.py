@@ -36,7 +36,7 @@ def main(request):
     return render(request, 'mainapp/index.html', context)
 
 
-def product(request):
+def products(request):
     hot_product = get_hot_product()
     context = {
         'page_title': 'Products',
@@ -45,7 +45,7 @@ def product(request):
         'hot_product': hot_product,
         'same_products': same_products(hot_product),
     }
-    return render(request, 'mainapp/product.html', context)
+    return render(request, 'mainapp/products.html', context)
 
 
 def category(request, pk):
@@ -61,13 +61,26 @@ def category(request, pk):
         category_products = category.product_set.all()
 
     context = {
-        'page_title': 'Products',
+        'page_title': 'Category page',
         'products_menu': get_products_menu(),
         'category_products': category_products,
         'category': category,
         'basket': get_basket(request),
     }
     return render(request, 'mainapp/category_products.html', context)
+
+
+def product(request, pk):
+        product = get_object_or_404(Product, pk=pk)
+
+        context = {
+            'page_title': 'Product page',
+            'products_menu': get_products_menu(),
+            'category': product.category,
+            'object': product,
+            'basket': get_basket(request),
+        }
+        return render(request, 'mainapp/product_page.html', context)
 
 
 def contacts(request):
