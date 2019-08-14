@@ -15,6 +15,7 @@ def index(request):
     }
     return render(request, 'basketapp/index.html', context)
 
+
 @login_required
 def basket_add(request, pk):
     product = get_object_or_404(Product, pk=pk)
@@ -31,5 +32,7 @@ def basket_add(request, pk):
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 
-def basket_remove(request,pk):
-    pass
+@login_required
+def basket_delete(request, pk):
+    get_object_or_404(Basket, pk=pk).delete()
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
