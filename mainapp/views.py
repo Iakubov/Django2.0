@@ -21,7 +21,7 @@ def same_products(hot_product):
 
 def get_basket(request):
     if request.user.is_authenticated:
-        return request.user.basket.all()
+        return request.user.basket.all().order_by('product__category')
     else:
         return []
 
