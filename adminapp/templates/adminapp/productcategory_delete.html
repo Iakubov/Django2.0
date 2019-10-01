@@ -1,0 +1,18 @@
+{% extends 'adminapp/base.html' %}
+{% load static %}
+
+{% block menu %}
+{% endblock %}
+
+{% block container %}
+    <div class="user_delete">
+        Are you sure you want to delete category <b>{{ object.name }}</b>?
+        <form method="post">
+            {% csrf_token %}
+            <input class="btn btn-danger" type="submit" value="delete">
+        </form>
+        <a href="{% url 'myadmin:productcategory_list' %}" class="btn btn-success">
+            отмена
+        </a>
+    </div>
+{% endblock %}

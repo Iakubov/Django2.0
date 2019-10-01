@@ -16,7 +16,7 @@ def login(request):
             user = auth.authenticate(username=username, password=password)
             if user and user.is_active:
                 next = request.POST['next'] if 'next' in request.POST.keys() else None
-                print(f'next: {next}')
+                # print(f'next: {next}')
                 auth.login(request, user)
                 return HttpResponseRedirect(reverse('main:index') if not next else next)
     else:
@@ -32,7 +32,7 @@ def login(request):
 
 def logout(request):
     auth.logout(request)
-    return HttpResponseRedirect('/')
+    return HttpResponseRedirect(reverse('main:index'))
 
 
 def register(request):

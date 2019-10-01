@@ -4,4 +4,4 @@ from django.db import models
 
 class ShopUser(AbstractUser):
     avatar = models.ImageField(upload_to='user_avatars', blank=True)
-    age = models.PositiveIntegerField(verbose_name='Возраст')
+    age = models.PositiveIntegerField(verbose_name='Age')

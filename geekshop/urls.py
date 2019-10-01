@@ -9,6 +9,7 @@ urlpatterns = [
     path('', include('mainapp.urls', namespace='main')),
     path('auth/', include('authapp.urls', namespace='auth')),
     path('basket/', include('basketapp.urls', namespace='basket')),
+    path('myadmin/', include('adminapp.urls', namespace='myadmin')),
 ]
 
 from django.conf import settings
