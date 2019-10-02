@@ -3,9 +3,10 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
 
-from adminapp.forms import ShopUserAdminCreateForm, ShopUserAdminUpdateForm, ProductCategoryAdminUpdateForm
+from adminapp.forms import ShopUserAdminCreateForm, ShopUserAdminUpdateForm, ProductCategoryAdminUpdateForm, \
+    ProductAdminUpdateForm
 from authapp.models import ShopUser
-from mainapp.models import ProductCategory
+from mainapp.models import ProductCategory, Product
 
 
 @user_passes_test(lambda x: x.is_superuser)
@@ -130,3 +131,79 @@ def productcategory_delete(request, pk):
             'object': productcategory,
         }
         return render(request, 'adminapp/productcategory_delete.html', context)
+
+
+@user_passes_test(lambda x: x.is_superuser)
+def productcategory_products(request, pk):
+    productcategory = get_object_or_404(ProductCategory, pk=pk)
+    content = {
+        'title': 'admin/category products',
+        'productcategory': productcategory,
+        'object_list': productcategory.product_set.all()
+    }
+    return render(request, 'adminapp/product_list.html', content)
+
+
+@user_passes_test(lambda x: x.is_superuser)
+def product_create(request, pk):
+    productcategory = get_object_or_404(ProductCategory, pk=pk)
+    if request.method == 'POST':
+        form = ProductAdminUpdateForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('myadmin:productcategory_products',
+                                                kwargs={'pk': pk}))
+    else:
+        form = ProductAdminUpdateForm(initial={'category': productcategory})
+
+    content = {
+        'title': 'admin/new product',
+        'form': form
+    }
+    return render(request, 'adminapp/product_update.html', content)
+
+
+@user_passes_test(lambda x: x.is_superuser)
+def product_update(request, pk):
+    product = get_object_or_404(Product, pk=pk)
+    if request.method == 'POST':
+        form = ProductAdminUpdateForm(request.POST, request.FILES, instance=product)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('myadmin:productcategory_products',
+                                                kwargs={'pk': product.category.pk}))
+    else:
+        form = ProductAdminUpdateForm(instance=product)
+
+    content = {
+        'title': 'admin/edit product',
+        'form': form
+    }
+    return render(request, 'adminapp/product_update.html', content)
+
+
+@user_passes_test(lambda x: x.is_superuser)
+def product_delete(request, pk):
+    product = get_object_or_404(Product, pk=pk)
+    if request.method == 'POST':
+        product.is_active = False
+        product.save()
+        return HttpResponseRedirect(reverse('myadmin:productcategory_products',
+                                            kwargs={'pk': product.category.pk}))
+    elif request.method == 'GET':
+        context = {
+            'page_title': 'admin/delete product',
+            'object': product,
+        }
+        return render(request, 'adminapp/product_delete.html', context)
+
+
+@user_passes_test(lambda x: x.is_superuser)
+def product_read(request, pk):
+    product = get_object_or_404(Product, pk=pk)
+    context = {
+        'page_title': 'admin/about product',
+        'object': product,
+    }
+
+    return render(request, 'adminapp/product_read.html', context)

@@ -11,9 +11,9 @@
             {{ form.as_p }}
             <input class="form-control" type="submit" value="сохранить">
         </form>
-        <a href="{% url 'myadmin:productcategory_list' %}"
+        <a href="{% url 'myadmin:productcategory_products' request.resolver_match.kwargs.pk %}"
            class="btn btn-primary form-control last">
-            to category list
+            to product list
         </a>
     </div>
 

@@ -17,29 +17,29 @@
     {% endblock %}
 </head>
 <body>
-<div class="admin_container">
+<div class="container">
     <div class="h2 text-center head">
         Admin panel
     </div>
     {% block menu %}
-        <div class="admin_menu">
-            <ul class="menu">
-                <li>
-                    <a href="{% url 'main:index' %}">To main</a>
-                </li>
-                <li>
-                    <a href="{% url 'myadmin:index' %}"
-                       class="{% if request.resolver_match.url_name == 'index' %}active{% endif %}">
-                        Users
-                    </a>
-                </li>
-                <li>
-                    <a href="{% url 'myadmin:productcategory_list' %}"
-                       class="{% if request.resolver_match.url_name == 'productcategory_list' %}active{% endif %}">
-                        Categories{% if category %}:<span>{{ category.name }}</span>{% endif %}
-                    </a>
-                </li>
-            </ul>
+        <div class="product-header-menu" style="padding-top: 30px;">
+                <ul class="menu" style="padding-left: 500px">
+                    <li class="menu_list">
+                        <a class="menu_link" href="{% url 'main:index' %}">To main</a>
+                    </li>
+                    <li class="menu_list">
+                        <a href="{% url 'myadmin:index' %}"
+                           class="menu_link {% if request.resolver_match.url_name == 'index' %} menu_link_active {% endif %}">
+                            Users
+                        </a>
+                    </li>
+                    <li class="menu_list">
+                        <a href="{% url 'myadmin:productcategory_list' %}"
+                           class="menu_link {% if request.resolver_match.url_name == 'productcategory_list' or productcategory.name %} menu_link_active {% endif %}">
+                            Categories{% if productcategory %}:<span>{{ productcategory.name }}</span>{% endif %}
+                        </a>
+                    </li>
+                </ul>
         </div>
     {% endblock %}
 

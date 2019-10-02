@@ -6,13 +6,14 @@
 
 {% block container %}
     <div class="user_delete">
-        Are you sure you want to delete this category <b>{{ object.name }}</b>?
+        Are you sure you want to delete this product <b>{{ object.name }}</b>?
         <form method="post">
             {% csrf_token %}
             <input class="btn btn-danger" type="submit" value="delete">
         </form>
-        <a href="{% url 'myadmin:productcategory_list' %}" class="btn btn-success">
-            отмена
+        <a href="{% url 'myadmin:productcategory_products' object.category.pk %}"
+           class="btn btn-primary form-control last">
+            to product list
         </a>
     </div>
 {% endblock %}
