@@ -8,6 +8,7 @@ urlpatterns = [
     path('', mainapp.main, name='index'),
     path('products/', mainapp.products, name='products'),
     path('category/<int:pk>/', mainapp.category, name='category'),
+    path('category/<int:pk>/<page>/', mainapp.category, name='category_paginator'),
     path('product/<int:pk>/', mainapp.product, name='product'),
     path('contacts/', mainapp.contacts, name='contacts'),
 ]

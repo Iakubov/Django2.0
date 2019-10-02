@@ -4,7 +4,8 @@ import adminapp.views as adminapp
 app_name = 'adminapp'
 
 urlpatterns = [
-    re_path(r'^$', adminapp.index, name='index'),
+    # re_path(r'^$', adminapp.index, name='index'),
+    re_path(r'^$', adminapp.ShopUserListView.as_view(), name='index'),
 
 
     re_path(r'^shopuser/create/$', adminapp.shopuser_create, name='shopuser_create'),
@@ -16,9 +17,13 @@ urlpatterns = [
 
     re_path(r'^productcategory/list/$', adminapp.productcategory_list,
             name='productcategory_list'),
-    re_path(r'^productcategory/create/$', adminapp.productcategory_create,
+    # re_path(r'^productcategory/create/$', adminapp.productcategory_create,
+    #         name='productcategory_create'),
+    re_path(r'^productcategory/create/$', adminapp.ProductCategoryCreateView.as_view(),
             name='productcategory_create'),
-    re_path(r'^productcategory/update/(?P<pk>\d+)/$', adminapp.productcategory_update,
+    # re_path(r'^productcategory/update/(?P<pk>\d+)/$', adminapp.productcategory_update,
+    #         name='productcategory_update'),
+    re_path(r'^productcategory/update/(?P<pk>\d+)/$', adminapp.ProductCategoryUpdateView.as_view(),
             name='productcategory_update'),
     re_path(r'^productcategory/delete/(?P<pk>\d+)/$', adminapp.productcategory_delete,
             name='productcategory_delete'),

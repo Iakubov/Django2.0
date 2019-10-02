@@ -1,7 +1,9 @@
 from django.contrib.auth.decorators import user_passes_test
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
+from django.utils.decorators import method_decorator
+from django.views.generic import ListView, CreateView, UpdateView
 
 from adminapp.forms import ShopUserAdminCreateForm, ShopUserAdminUpdateForm, ProductCategoryAdminUpdateForm, \
     ProductAdminUpdateForm
@@ -9,15 +11,23 @@ from authapp.models import ShopUser
 from mainapp.models import ProductCategory, Product
 
 
-@user_passes_test(lambda x: x.is_superuser)
-def index(request):
-    object_list = ShopUser.objects.all()
+# @user_passes_test(lambda x: x.is_superuser)
+# def index(request):
+#     object_list = ShopUser.objects.all()
+#
+#     context = {
+#         'page_title': 'admin/users',
+#         'object_list': object_list,
+#     }
+#     return render(request, 'adminapp/index.html', context)
 
-    context = {
-        'page_title': 'admin/users',
-        'object_list': object_list,
-    }
-    return render(request, 'adminapp/index.html', context)
+
+class ShopUserListView(ListView):
+    model = ShopUser
+
+    @method_decorator(user_passes_test(lambda u: u.is_superuser))
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
 
 
 @user_passes_test(lambda x: x.is_superuser)
@@ -83,39 +93,60 @@ def productcategory_list(request):
     return render(request, 'adminapp/productcategory_list.html', context)
 
 
-@user_passes_test(lambda x: x.is_superuser)
-def productcategory_create(request):
-    if request.method == 'POST':
-        form = ProductCategoryAdminUpdateForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect(reverse('myadmin:productcategory_list'))
-    else:
-        form = ProductCategoryAdminUpdateForm
+# @user_passes_test(lambda x: x.is_superuser)
+# def productcategory_create(request):
+#     if request.method == 'POST':
+#         form = ProductCategoryAdminUpdateForm(request.POST, request.FILES)
+#         if form.is_valid():
+#             form.save()
+#             return HttpResponseRedirect(reverse('myadmin:productcategory_list'))
+#     else:
+#         form = ProductCategoryAdminUpdateForm
+#
+#     content = {
+#         'title': 'admin/new product category',
+#         'form': form
+#     }
+#     return render(request, 'adminapp/productcategory_update.html', content)
 
-    content = {
-        'title': 'admin/new product category',
-        'form': form
-    }
-    return render(request, 'adminapp/productcategory_update.html', content)
+
+class ProductCategoryCreateView(CreateView):
+    model = ProductCategory
+    success_url = reverse_lazy('myadmin:productcategory_list')
+    form_class = ProductCategoryAdminUpdateForm
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'admin/new category'
+        return context
 
 
-@user_passes_test(lambda x: x.is_superuser)
-def productcategory_update(request, pk):
-    productcategory = get_object_or_404(ProductCategory, pk=pk)
-    if request.method == 'POST':
-        form = ProductCategoryAdminUpdateForm(request.POST, request.FILES, instance=productcategory)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect(reverse('myadmin:productcategory_list'))
-    else:
-        form = ProductCategoryAdminUpdateForm(instance=productcategory)
+# @user_passes_test(lambda x: x.is_superuser)
+# def productcategory_update(request, pk):
+#     productcategory = get_object_or_404(ProductCategory, pk=pk)
+#     if request.method == 'POST':
+#         form = ProductCategoryAdminUpdateForm(request.POST, request.FILES, instance=productcategory)
+#         if form.is_valid():
+#             form.save()
+#             return HttpResponseRedirect(reverse('myadmin:productcategory_list'))
+#     else:
+#         form = ProductCategoryAdminUpdateForm(instance=productcategory)
+#
+#     content = {
+#         'title': 'admin/new product category',
+#         'form': form
+#     }
+#     return render(request, 'adminapp/productcategory_update.html', content)
 
-    content = {
-        'title': 'admin/new product category',
-        'form': form
-    }
-    return render(request, 'adminapp/productcategory_update.html', content)
+class ProductCategoryUpdateView(UpdateView):
+    model = ProductCategory
+    success_url = reverse_lazy('myadmin:productcategory_list')
+    form_class = ProductCategoryAdminUpdateForm
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'admin/category edit'
+        return context
 
 
 @user_passes_test(lambda x: x.is_superuser)
