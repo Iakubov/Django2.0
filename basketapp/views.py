@@ -13,7 +13,6 @@ from mainapp.views import get_basket
 def index(request):
     context = {
         'page_title': 'Basket',
-        'basket': get_basket(request),
     }
     return render(request, 'basketapp/index.html', context)
 
