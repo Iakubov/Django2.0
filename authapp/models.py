@@ -32,18 +32,18 @@ class ShopUserProfile(models.Model):
         (FEMALE, 'W')
     )
 
-    user = models.ForeignKey(ShopUser, on_delete=models.CASCADE,
-                             null=False, db_index=True, unique=True)
+    user = models.OneToOneField(ShopUser, unique=True, null=False,
+                                db_index=True, on_delete=models.CASCADE)
     tagLine = models.CharField(verbose_name='tags', max_length=128, blank=True)
     aboutMe = models.CharField(verbose_name='about', max_length=512, blank=True)
     gender = models.CharField(verbose_name='sex', max_length=1,
                               choices=GENDER_CHOICES, blank=True)
 
     @receiver(post_save, sender=ShopUser)
-    def create_user_profile(self, instance, created, sender, **kwargs):
+    def create_user_profile(sender, instance, created, **kwargs):
         if created:
             ShopUserProfile.objects.create(user=instance)
 
     @receiver(post_save, sender=ShopUser)
-    def save_user_profile(self, instance, sender, **kwargs):
+    def save_user_profile(sender, instance, **kwargs):
         instance.shopuserprofile.save()
