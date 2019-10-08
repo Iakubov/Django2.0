@@ -38,6 +38,7 @@ class ShopUserProfile(models.Model):
     aboutMe = models.CharField(verbose_name='about', max_length=512, blank=True)
     gender = models.CharField(verbose_name='sex', max_length=1,
                               choices=GENDER_CHOICES, blank=True)
+    profile_link = models.CharField(verbose_name='vk_link', max_length=128, blank=True)
 
     @receiver(post_save, sender=ShopUser)
     def create_user_profile(sender, instance, created, **kwargs):
