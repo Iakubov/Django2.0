@@ -6,58 +6,63 @@
     <meta charset="UTF-8">
     <title>{{ page_title|title }}</title>
     {% block css %}
-    <link rel="stylesheet" href="{% static '/css/style.css' %}">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,300,400,700" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:100,300,400,700" rel="stylesheet">
+        <link href="{% static '/css/bootstrap.min.css' %}">
     {% endblock %}
     {% block js %}
-    <script src="https://kit.fontawesome.com/9d8cbc5593.js"></script>
+        <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
     {% endblock %}
 </head>
 
 <body>
-    <div class="container">
-        {% block container %}
-        {% endblock %}
-        <footer class="footer padding-site">
-            <div class="footer-topics">
-                <div class="topic1">
-                    <h3 class="footer-h3">Contact us</h3>
-                    <p class="text-footer">132A Bridge Road Richmond VIC Australia.<br><br> Talk to us on 1300 132<br> info@interior.com</p>
-                </div>
-                <div class="topic2">
-                    <h3 class="footer-h3">Useful information</h3>
-                    <div class="footer-topic2-container">
-                        <div class="footer-topic2-1">
-                            <a href="#" class="usefull-info-a">Sales terms</a>
-                            <a href="#" class="usefull-info-a">Customer care</a>
-                            <a href="#" class="usefull-info-a">Delivery</a>
-                        </div>
-                        <div class="footer-topic2-2">
-                            <a href="#" class="usefull-info-a">Architect accounts</a>
-                            <a href="#" class="usefull-info-a">Careers</a>
-                            <a href="#" class="usefull-info-a">Exchanges &amp; returns</a>
-                        </div>
+<div class="container">
+    {% block container %}
+    {% endblock %}
+    <footer class="footer padding-site">
+        <div class="footer-topics">
+            <div class="topic1">
+                <h3 class="footer-h3">Contact us</h3>
+                <p class="text-footer">132A Bridge Road Richmond VIC Australia.<br><br> Talk to us on 1300 132<br>
+                    info@interior.com</p>
+            </div>
+            <div class="topic2">
+                <h3 class="footer-h3">Useful information</h3>
+                <div class="footer-topic2-container">
+                    <div class="footer-topic2-1">
+                        <a href="#" class="usefull-info-a">Sales terms</a>
+                        <a href="#" class="usefull-info-a">Customer care</a>
+                        <a href="#" class="usefull-info-a">Delivery</a>
+                    </div>
+                    <div class="footer-topic2-2">
+                        <a href="#" class="usefull-info-a">Architect accounts</a>
+                        <a href="#" class="usefull-info-a">Careers</a>
+                        <a href="#" class="usefull-info-a">Exchanges &amp; returns</a>
                     </div>
                 </div>
-                <div class="topic3">
-                    <h3 class="footer-h3">Let's stay in touch!</h3>
-                    <p class="text-footer">Suscribe to know about our latest news, products and special offers just for suscribers.</p>
-                    <input type="email" class="email-input" placeholder="your email address">
+            </div>
+            <div class="topic3">
+                <h3 class="footer-h3">Let's stay in touch!</h3>
+                <p class="text-footer">Suscribe to know about our latest news, products and special offers just for
+                    suscribers.</p>
+                <input type="email" class="email-input" placeholder="your email address">
 
-                </div>
             </div>
-            <div class="copyright">
-                <p class="copyright-text">&#169; Copyright - INTERIOR 2016. All Rights Reserved.</p>
-                <div class="footer-social">
-                    <i class="fab fa-google fa-2x"></i>
-                    <i class="fab fa-facebook fa-2x"></i>
-                    <i class="fab fa-pinterest fa-2x"></i>
-                    <i class="fab fa-telegram fa-2x"></i>
-                </div>
-                <p class="copyright-text">Terms &amp; Conditions / Privacy policy &amp; Cookies</p>
+        </div>
+        <div class="copyright">
+            <p class="copyright-text">&#169; Copyright - INTERIOR 2016. All Rights Reserved.</p>
+            <div class="footer-social">
+                <i class="fab fa-google fa-2x"></i>
+                <i class="fab fa-facebook fa-2x"></i>
+                <i class="fab fa-pinterest fa-2x"></i>
+                <i class="fab fa-telegram fa-2x"></i>
             </div>
-        </footer>
-    </div>
+            <p class="copyright-text">Terms &amp; Conditions / Privacy policy &amp; Cookies</p>
+        </div>
+    </footer>
+</div>
 </body>
 
 </html>
