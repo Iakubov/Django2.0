@@ -14,21 +14,43 @@
         </li>
         <li class="menu_list">
             {% if user.is_authenticated %}
-                <a href="{% url 'auth:update' %}" class="menu_link">
-                    {{ user.first_name|default:'User' }}
-                </a>
+                <li class="menu_list">
+                    <div class="dropdown">
+                        <a class="dropdown-toggle" href="" data-toggle="dropdown">
+                            {{ user.first_name|default:'User' }}
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="menu_list">
+                                <a class="menu_link" href="{% url 'auth:update' %}">
+                                    edit profile
+                                </a>
+                            </li>
+                            <li class="menu_list">
+                                <a class="menu_link" href="{% url 'ordersapp:orders_list' %}">
+                                    orders
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
             {% endif %}
-            {% if user.is_superuser %}
+        {% if user.is_superuser %}
+            <li>
                 <a href="{% url 'adminapp:index' %}" class="menu_link">
                     Admin
                 </a>
-            {% endif %}
-            {% if user.is_authenticated %}
+            </li>
+        {% endif %}
+        {% if user.is_authenticated %}
+            <li class="menu_list">
                 <a href="{% url 'authapp:logout' %}" class="menu_link">Sign out</a>
-            {% else %}
+            </li>
+        {% else %}
+            <li class="menu_list">
                 <a href="{% url 'authapp:login' %}" class="menu_link">Sign in</a>
-            {% endif %}
-        </li>
+            </li>
+        {% endif %}
         <li class="menu_list"><a href="#" class="menu_link"><img src="/static/img/search.svg" alt="search"></a></li>
         <li class="menu_list"><a href="{% url 'basket:index' %}" class="menu_link"><img src="/static/img/basket.png"
                                                                                         alt="search"></a></li>

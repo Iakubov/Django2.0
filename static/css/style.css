@@ -32,7 +32,7 @@ body {
     font-weight: 300;
     text-transform: uppercase;
     padding: 10px 13px;
-
+    letter-spacing: 1.4px;
 }
 
 
@@ -394,10 +394,15 @@ body {
 .menu_link_active {
     color: #212121;
     font-weight: 700;
-    /*noinspection CssFloatPxLength*/
     letter-spacing: 1.4px;
     border-bottom: 3px solid #212121;
+}
 
+.menu_link:hover {
+    color: #212121;
+    letter-spacing: 1.4px;
+    border-bottom: 3px solid #212121;
+    text-decoration: none;
 }
 
 .trending {
@@ -496,7 +501,7 @@ body {
     margin-left: 420px;
     color: #555;
     float: left;
-    margin-top: 50px;
+    margin-top: 21px;
 }
 
 .paginator a, .paginator a:visited {
