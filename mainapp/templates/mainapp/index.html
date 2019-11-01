@@ -1,6 +1,8 @@
 {% extends 'mainapp/base.html' %}
 {% load static %}
+
         {% block container %}
+            <div class="container">
         <div class="slider padding-site">
             {% include 'mainapp/includes/inc_menu.html' %}
             <div class="slider_text_box">
@@ -109,4 +111,5 @@
                 <a href="#" class="googleplay"><img src="{% static 'img/google-play.png' %}" alt="google-play"></a>
             </div>
         </div>
+            </div>
         {% endblock %}

@@ -13,26 +13,26 @@ class Order(models.Model):
     CANCEL = 'CNC'
 
     ORDER_STATUS_CHOICES = (
-        (FORMING, 'формируется'),
-        (SENT_TO_PROCEED, 'отправлен в обработку'),
-        (PAID, 'оплачен'),
-        (PROCEEDED, 'обрабатывается'),
-        (READY, 'готов к выдаче'),
-        (CANCEL, 'отменен'),
+        (FORMING, 'forming'),
+        (SENT_TO_PROCEED, 'sent to proceed'),
+        (PAID, 'paid'),
+        (PROCEEDED, 'processing'),
+        (READY, 'ready to deliver'),
+        (CANCEL, 'canceled'),
     )
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    created = models.DateTimeField(verbose_name='создан', auto_now_add=True)
-    updated = models.DateTimeField(verbose_name='обновлен', auto_now=True)
-    status = models.CharField(verbose_name='статус', max_length=3, choices=ORDER_STATUS_CHOICES, default=FORMING)
-    is_active = models.BooleanField(verbose_name='активен', default=True)
+    created = models.DateTimeField(verbose_name='created', auto_now_add=True)
+    updated = models.DateTimeField(verbose_name='updated', auto_now=True)
+    status = models.CharField(verbose_name='status', max_length=3, choices=ORDER_STATUS_CHOICES, default=FORMING)
+    is_active = models.BooleanField(verbose_name='active', default=True)
 
     class Meta:
         ordering = ('-created',)
-        verbose_name = 'заказ'
-        verbose_name_plural = 'заказы'
+        verbose_name = 'order'
+        verbose_name_plural = 'order'
 
     def __str__(self):
-        return 'Текущий заказ: {}'.format(self.id)
+        return 'Current order: {}'.format(self.id)
 
     def get_total_quantity(self):
         items = self.orderitems.select_related()
@@ -47,7 +47,7 @@ class Order(models.Model):
         return sum(list(map(lambda x: x.quantity * x.product.price, items)))
 
     # переопределяем метод, удаляющий объект
-    def delete(self):
+    def delete(self, using=None, keep_parents=None):
         for item in self.orderitems.select_related():
             item.product.quantity += item.quantity
             item.product.save()
@@ -58,8 +58,8 @@ class Order(models.Model):
 
 class OrderItem(models.Model):
     order = models.ForeignKey(Order, related_name="orderitems", on_delete=models.CASCADE)
-    product = models.ForeignKey(Product, verbose_name='продукт', on_delete=models.CASCADE)
-    quantity = models.PositiveIntegerField(verbose_name='количество', default=0)
+    product = models.ForeignKey(Product, verbose_name='product', on_delete=models.CASCADE)
+    quantity = models.PositiveIntegerField(verbose_name='quantity', default=0)
 
     def get_product_cost(self):
         return self.product.price * self.quantity

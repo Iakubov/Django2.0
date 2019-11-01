@@ -1,6 +1,8 @@
+from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, HttpResponseRedirect
 
 from basketapp.models import Basket
+from mainapp.models import Product
 from ordersapp.models import Order, OrderItem
 
 from django.views.generic import CreateView, UpdateView, DeleteView, ListView
@@ -10,6 +12,36 @@ from django.db import transaction
 
 from ordersapp.forms import OrderItemForm
 from django.forms import inlineformset_factory
+
+from django.dispatch import receiver
+from django.db.models.signals import pre_save, pre_delete
+
+
+@receiver(pre_save, sender=OrderItem)
+@receiver(pre_save, sender=Basket)
+def product_quantity_update_save(sender, update_fields, instance, **kwargs):
+    if update_fields in ('quantity', 'product'):
+        if instance.pk:
+            instance.product.quantity -= instance.quantity - sender.get_item(instance.pk).quantity
+        else:
+            instance.product.quantity -= instance.quantity
+        instance.product.save()
+
+
+@receiver(pre_delete, sender=OrderItem)
+@receiver(pre_delete, sender=Basket)
+def product_quantity_update_delete(sender, instance, **kwargs):
+    instance.product.quantity += instance.quantity
+    instance.product.save()
+
+
+def get_product_price(request, pk):
+    if request.is_ajax():
+        product = Product.objects.filter(pk=int(pk)).first()
+        if product:
+            return JsonResponse({'price': product.price})
+        else:
+            return JsonResponse({'price': 0})
 
 
 class OrderList(ListView):
@@ -38,7 +70,7 @@ class OrderItemsCreate(CreateView):
                 for num, form in enumerate(formset.forms):
                     form.initial['product'] = basket_items[num].product
                     form.initial['quantity'] = basket_items[num].quantity
-                basket_items.delete()
+                    form.initial['price'] = basket_items[num].product.price
             else:
                 formset = OrderFormSet()
 
@@ -83,7 +115,11 @@ class OrderItemsUpdate(UpdateView):
         if self.request.POST:
             data['orderitems'] = OrderFormSet(self.request.POST, instance=self.object)
         else:
-            data['orderitems'] = OrderFormSet(instance=self.object)
+            formset = OrderFormSet(instance=self.object)
+            for form in formset.forms:
+                if form.instance.pk:
+                    form.initial['price'] = form.instance.product.price
+                data['orderitems'] = formset
         return data
 
     def form_valid(self, form):

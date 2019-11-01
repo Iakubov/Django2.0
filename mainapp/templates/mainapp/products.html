@@ -52,6 +52,7 @@
                         <a href="" class="product_button"><img src="{% static 'img/arrow.svg' %}" alt=">"></a>
                         <h3 class="product_h3">{{ product.name }}</h3>
                         <p class="product_p">{{ product.description }}</p>
+                        <p class="product_p">на складе {{ product.quantity }}</p>
                     </div>
                 </div>
                 {% endfor %}
